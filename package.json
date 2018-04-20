@@ -3,7 +3,7 @@
   "productName": "invoice-manager",
   "version": "1.0.0",
   "description": "My Electron application description",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -47,10 +47,17 @@
     }
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.0",
+    "bulma": "^0.7.1",
     "electron-compile": "^6.4.2",
     "electron-devtools-installer": "^2.2.3",
     "electron-squirrel-startup": "^1.0.0",
-    "vue": "^2.5.16"
+    "jquery": "^3.3.1",
+    "knex": "^0.14.6",
+    "materialize-css": "^0.100.2",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",

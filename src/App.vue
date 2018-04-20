@@ -1,13 +1,15 @@
 <template>
-  <h2>Hello from {{text}}</h2>
+  <div>
+
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'test',
+  name: 'app',
   data () {
     return {
-       text: ''
+      
     }
   }
 }
