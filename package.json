@@ -56,6 +56,7 @@
     "jquery": "^3.3.1",
     "knex": "^0.14.6",
     "materialize-css": "^0.100.2",
+    "popper.js": "^1.14.3",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },
