@@ -58,7 +58,8 @@
     "materialize-css": "^0.100.2",
     "popper.js": "^1.14.3",
     "vue": "^2.5.16",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vueify": "^9.4.1"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",

@@ -1,0 +1,30 @@
+
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../node_modules/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css';
+
+.bg{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(250,250,250);
+  margin: 0px;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+
+.navbar-nav .nav-item{
+  border-bottom: none;
+  transition: border 0.4s;
+}
+
+.navbar-nav .nav-item.active{
+    border-bottom: solid white 2px;
+    transition: border 0.4s;
+}
+
+.navbar-nav .nav-item:hover{
+  border-bottom: solid lightgray 2px;
+  transition: border 0.4s;
+}
