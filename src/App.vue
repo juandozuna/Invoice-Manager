@@ -2,6 +2,9 @@
   <div>
     <div class="bg"></div>
     <navbar></navbar>
+
+    <router-view></router-view>
+
   </div>
 </template>
 
@@ -12,11 +15,6 @@ export default {
   name: 'app',
   components: {
     Navbar
-  },
-  data () {
-    return {
-      
-    }
   }
 }
 </script>

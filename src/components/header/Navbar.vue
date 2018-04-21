@@ -8,7 +8,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item ">
             <a class="nav-link" href="#">Crear</a>
           </li>
@@ -32,6 +32,14 @@
             </div>
           </li>
         </ul>
+
+
+        <ul style="" class="navbar-nav">
+            <li class="navbar-item">
+              <a href="#" class="nav-link">Configuraciones</a>
+            </li>
+        </ul>
+
       </div>
     </nav>
   </div>
@@ -53,9 +61,7 @@ export default {
     }
   },
   created(){
-      $(document).ready(function(){
-
-      })
+      
   }
 }
 </script>
