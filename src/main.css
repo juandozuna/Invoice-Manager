@@ -1,6 +1,9 @@
 
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
-@import '../node_modules/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css';
+@import './assets/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css';
+
+@import '../node_modules/ag-grid/dist/styles/ag-grid.css';
+@import '../node_modules/ag-grid/dist/styles/ag-theme-bootstrap.css';
 
 .bg{
   position: fixed;

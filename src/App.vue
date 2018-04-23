@@ -2,7 +2,8 @@
   <div>
     <div class="bg"></div>
     <navbar></navbar>
-
+    <br><br>
+    <div style="margin-bottom: 40px"></div>
     <router-view></router-view>
 
   </div>

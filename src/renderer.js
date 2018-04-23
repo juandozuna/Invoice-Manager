@@ -5,7 +5,7 @@ import App from './app';
 import router from './router';
 import 'vueify/lib/insert-css';
 
-
+const $ = require('jquery');
 
 import 'bootstrap';
 

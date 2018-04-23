@@ -12,7 +12,7 @@
           <p><strong>RNC: 43-0028878</strong></p>
         </div>
       </div>
-      <h1 class="display-4 text-center">Torre Empresarial Reyna II</h1> <!--(MAX: 25) -->
+      <h1 class="display-4 text-center">Nombre de Company</h1> <!--(MAX: 25) -->
 
       <div class="right">
         <p><strong>Fecha: </strong> {{date}}</p>
@@ -21,7 +21,26 @@
       </div>
 
       <div class="promise">
+        <div class="mover-controls">
+          <button @click="prev"> <i class="fas fa-caret-left"></i> </button>
+          <button @click="nxt" > <i class="fas fa-caret-right"></i> </button>
+        </div>
+
         <h4 class="text-center">Factura Válida para Crédito Fiscal</h4>
+
+        <div class="controls">
+          <button class="btn btn-success" data-toggle="tooltip" title="Guardar y hacer una factura nuevas" @click="newInv"><i class="fas fa-save"></i> Nuevo <i class="fas fa-plus"></i> </button>
+          <button class="btn btn-primary" title="Solo guarda lo que ya se a hecho" @click="save"><i class="fas fa-save"></i> Guardar</button>
+          <button class="btn btn-danger" @click="reset"><i class="fas fa-times"></i> Resetear</button>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="print">
+            <label class="form-check-label">Imprimir Luego</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="email" checked>
+            <label class="form-check-label"> Enviar Luego</label>
+          </div>
+        </div>
       </div>
     </div>
     
@@ -65,7 +84,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="i in 10" :key="i">
+          <tr v-for="i in duplicates" :key="i">
             <td><input type="text" class="invoice-input text-center"></td>
             <td><input type="text" class="invoice-input"></td>
             <td><input type="text" class="invoice-input text-center"></td>
@@ -74,6 +93,10 @@
           </tr>
         </tbody>
       </table>
+      <div class="bottom-controls">
+        <button class="btn btn-primary" @click="addRow"><i class="fas fa-plus"></i> Agregar Fila</button>
+        <button class="btn btn-primary" @click="removeRow"><i class="fas fa-cross"></i> Quitar Fila</button>
+      </div>
     </div>
 
   </div>
@@ -81,12 +104,60 @@
 
 
 <script>
+const $ = require('jquery');
+require('popper.js');
+require('bootstrap');
+
 export default {
   name: 'create-invoice',
   data(){
     return {
-      date: ''
+      date: '',
+      duplicates: 5,
     }
+  },
+  methods: {
+    addRow(){
+      this.duplicates++;
+    },
+    removeRow(){
+      if(this.duplicates > 1)
+        this.duplicates--;
+    },
+
+    prev(){
+      //TODO: Code to travel to previous invoice
+    },
+
+    nxt(){
+      //TODO: Code to travel to next invoice
+    },
+
+    save(){
+      //TODO: Code to save invoice
+    },
+
+    newInv(){
+      //TODO: Code to create new INovice
+      
+      //Before Createing a new invoice you must save the actual one
+      this.save();
+      this.reset();
+    },
+
+    reset(){
+      //TODO: Code to reset the invoice to start from scratch 
+
+    },
+
+    hardReset(){
+      //TODO: Code to destroy all of the aspects of the invoice 
+    }
+
+
+
+
+
   },
   created(){
       let d = new Date('03/12/2016');
@@ -96,28 +167,60 @@ export default {
         day: 'numeric'
       });
   }
+  //TODO: Code and functionality pending to be able to create invoices. Design of rest
 }
 </script>
 
 
 <style scoped>
 
+  .mover-controls{
+    position: absolute;
+    top: -56px;
+    left: 9%;
+  }
+
+  .mover-controls button{
+    background-color: rgba(108, 156, 189, 0.23);
+    color: rgb(20, 72, 123);
+    border-radius: 3px;
+    border: none;
+    font-size: 2em;
+    margin: 0 6em;
+    display: inline;
+
+  }
+
+  .bottom-controls{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    float: right;
+  }
+
+  .controls{
+    position: absolute;
+    display: inline-block;
+    z-index: 1;
+    top: -30px;
+    left: 67%;
+  }
 
   .invoice-input{
     background-color: #fff;
     border: none;
     outline: none;
-    height: 100%;
+    height: 50px;
     width: 100%;
     font-size: 1.1em;
+    margin: 0px;
   }
 
   .invoice-input:focus{
 
     outline: none;
-    background-color: lightblue;
+    background-color: rgba(132, 224, 255, 0.027);
     color: black;
-    border-bottom: double 2px dodgerblue;
+    border-bottom: double 2px rgba(54, 69, 83, 0.425);
   }
 
   .content table tr{

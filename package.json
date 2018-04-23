@@ -47,9 +47,12 @@
     }
   },
   "dependencies": {
+    "ag-grid": "^17.1.1",
+    "ag-grid-vue": "^17.1.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.0",
     "bulma": "^0.7.1",
+    "datatables.net-bs4": "^1.10.16",
     "electron-compile": "^6.4.2",
     "electron-devtools-installer": "^2.2.3",
     "electron-squirrel-startup": "^1.0.0",
