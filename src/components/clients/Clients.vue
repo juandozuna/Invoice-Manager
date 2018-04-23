@@ -1,8 +1,15 @@
 <template>
   <div class="container-fluid" >
-      <table id="tabla" class="table table-bordered table-striped table-sm">
+      <div>
+        <h1 class="text-center">Cliente areas</h1>
+      </div>
+      <div class="btn-group" role="group" style="float: right">
+        <button class="btn btn-primary"> <i class="fas fa-user-plus"></i> Clientes</button>
+      </div>
+      <hr>
+      <table id="tabla" class="table table-bordered table-striped table-hover table-sm">
           <thead>
-            <tr class="text-center">
+            <tr class="">
               <th>Nombre</th>
               <th>Correos</th>
               <th>Telefono Principal</th>
@@ -21,8 +28,10 @@
               <td>Ocupado</td>
               <td>203 | 205 | 504</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -33,8 +42,10 @@
               <td>Ocupado</td>
               <td>404</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -45,8 +56,10 @@
               <td>Ocupado</td>
               <td>204</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -57,8 +70,10 @@
               <td>Desocupado</td>
               <td>402</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -69,8 +84,10 @@
               <td>Ocupado</td>
               <td>203 | 205 | 504</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -81,8 +98,10 @@
               <td>Ocupado</td>
               <td>404</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -93,8 +112,10 @@
               <td>Ocupado</td>
               <td>204</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -105,8 +126,10 @@
               <td>Desocupado</td>
               <td>402</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -117,8 +140,10 @@
               <td>Ocupado</td>
               <td>203 | 205 | 504</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -129,8 +154,10 @@
               <td>Ocupado</td>
               <td>404</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -141,8 +168,10 @@
               <td>Ocupado</td>
               <td>204</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
             <tr>
@@ -153,8 +182,10 @@
               <td>Desocupado</td>
               <td>402</td>
               <td>
-                <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                <div class="btn-group">
+                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                </div>
               </td>
             </tr>
            
@@ -178,20 +209,35 @@ export default {
     return{
       gridOptions: {},
       columnDefs: null,
-      rowData: null
+      rowData: null,
+      options: {}
     }
   },
   created(){
+    this.options = {
+      language: {
+        emptyTable: "No hay data disponible en la tabla",
+        info: "Entradas del _START_  al _END_ de _TOTAL_ ",
+        infoEmpty: "Sin entradas",
+        infoFiltered: '(Filtrado de _MAX_ entradas)',
+        paginate: {
+          first: "Primero",
+          last: "Ultimo",
+          next: " <i class='fas fa-caret-right'></i> ",
+          previous: "<i class='fas fa-caret-left'></i> "
+        },
+        zeroRecords: "No se encontró data con los criterios de busqueda",
+        search: "Buscar: ",
+        processing: 'Procesando...',
+        lengthMenu: 'Mostrar _MENU_ entradas',
+        aria: {
+          sortAscending : "<i class='fas fa-caret-up></i>'",
+          sortDescending: "<i class='fas fa-caret-bottom></i>'",
+        }
+      }
+    }
     $(document).ready(() => {
-      $('#tabla').DataTable({
-         columnDefs: [{
-           targets: [0],
-           orderData: [0,1]
-         },{
-           targets:[1],
-           orderData: [1,0]
-         }]
-      });
+      $('#tabla').DataTable(this.options);
     });
   }
 }
