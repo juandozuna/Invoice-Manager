@@ -11,8 +11,19 @@ const routes = [
   },
   {
     path: '/Clientes',
-    name: 'Clientes-ListView',
-    component: require('./components/clients/Clients')
+    component: require('./components/clients/Clients'),
+    children: [
+      {
+        path: '/',
+        name: 'clientes-list',
+        component: require('./components/clients/ListClient')
+      },
+      {
+        path: 'Add',
+        name: 'clientes-add',
+        component: require('./components/clients/AddClient')
+      }
+    ]
   }
 ];
 

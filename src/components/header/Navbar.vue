@@ -10,10 +10,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item" :class="{'active': menuItems[0]}">
-            <router-link :to="{name: 'invoice-create'}" class="nav-link" @click="menuSelect(0)">Clientes</router-link>
+            <router-link :to="{name: 'invoice-create'}" class="nav-link" @click="menuSelect(0)">Facturación</router-link>
           </li>
           <li class="nav-item" :class="{'active': menuItems[1]}">
-            <router-link :to="{name: 'Clientes-ListView'}" class="nav-link">Clientes</router-link>
+            <router-link :to="{name: 'clientes-list'}" class="nav-link">Clientes</router-link>
           </li>
           <li class="nav-item" :class="{'active': menuItems[2]}">
             <a href="#" class="nav-link" @click="menuSelect(2)" >Itemes</a>
