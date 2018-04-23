@@ -1,5 +1,8 @@
 <template>
-    <form>
+    <div>
+        <router-link :to="{name: 'clientes-list'}" class="btn btn-secondary float-right">Listado</router-link>
+        <br>
+    <form @submit.prevent="submit">
         <div class="form-group">
             <label>Nombre</label>
             <input type="text" class="form-control">
@@ -13,10 +16,11 @@
             <input type="text" class="form-control">
         </div>
 
-        <input class="btn btn-primary" type="submit" value="Agregrar"></input>
+        <input class="btn btn-primary" type="submit" value="Agregrar">
     </form>
 
-    <router-link :to="{name: 'clientes-list'}" class="btn btn-primary">Listado</router-link>
+    
+    </div>
 </template>
 
 
@@ -26,6 +30,13 @@ export default {
   data(){
       return{
 
+      }
+  },
+  methods:{
+      submit(){
+          this.$router.push({
+              name: 'clientes-list'
+          });
       }
   }
 }

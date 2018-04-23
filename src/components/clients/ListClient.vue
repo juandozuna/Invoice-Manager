@@ -4,7 +4,7 @@
         <h3 class="text-center">Listado</h3>
       </div>
       <div class="btn-group" role="group" style="float: right">
-        <router-link :to="{name: 'clientes-add'}"  class="btn btn-primary"> <i class="fas fa-user-plus"></i> Clientes</router-link >
+        <router-link :to="{name: 'clientes-add'}"  class="btn btn-primary"> <i class="fas fa-user-plus"></i> Agregar</router-link >
       </div>
       <hr>
       <table id="tabla" class="table table-bordered table-striped table-hover table-sm">
