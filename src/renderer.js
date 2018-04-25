@@ -9,13 +9,20 @@ require('datatables.net-bs4')();
 const $ = require('jquery');
 
 import 'bootstrap';
+import BootstrapVue from 'bootstrap-vue';
+
+
+Vue.use(BootstrapVue);
 
 const app = new Vue({
   router,
   components: {
     App
   },
-  render: h => h(App)
+  render: h => h(App),
+  created(){
+    
+  }
 }).$mount('#app');
 
 

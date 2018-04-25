@@ -16,7 +16,7 @@
             <router-link :to="{name: 'clientes-list'}" class="nav-link">Clientes</router-link>
           </li>
           <li class="nav-item" :class="{'active': menuItems[2]}">
-            <a href="#" class="nav-link" @click="menuSelect(2)" >Itemes</a>
+            <router-link :to="{name: 'items-list'}" class="nav-link">Items</router-link>
           </li>
           <li class="nav-item" :class="{'active': menuItems[3]}"  >
             <a href="#" class="nav-link" @click="menuSelect(3)">Listado Facturas</a>
@@ -36,7 +36,7 @@
 
         <ul style="" class="navbar-nav">
             <li class="navbar-item">
-              <a href="#" class="nav-link btn btn-dark"> <i class="fas fa-cogs"></i> </a>
+              <router-link :to="{name: 'options'}" class="nav-link btn btn-dark"> <i class="fas fa-cogs"></i> </router-link>
             </li>
         </ul>
 

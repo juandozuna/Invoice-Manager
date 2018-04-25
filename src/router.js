@@ -24,6 +24,22 @@ const routes = [
         component: require('./components/clients/AddClient')
       }
     ]
+  },
+  {
+    path: '/Items',
+    component: require('./components/items/Items'),
+    children: [
+      {
+        path: '/',
+        name: 'items-list',
+        component: require('./components/items/List')
+      }
+    ]
+  },
+  {
+    path: '/Options',
+    name: 'options',
+    component: require('./components/options/Options')
   }
 ];
 
