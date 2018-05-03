@@ -17,7 +17,7 @@
       <div class="right">
         <p><strong>Fecha: </strong> {{date}}</p>
         <p><strong>Fact: </strong> 4560</p> 
-        <p><strong>NCF: </strong> A0010001000100004560</p>
+        <p><strong>NCF: </strong> B0100000123</p>
       </div>
 
       <div class="promise">
