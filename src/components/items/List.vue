@@ -16,8 +16,8 @@
             <div v-if="!row.item.editing">
                 <div v-for="(i, key) in row.item.status" :key="key" >
                     <b-row class="mb-2">
-                        <b-col sm="3" class="text-sm-right"> <b>{{i[0]}}: </b> </b-col>
-                        <b-col>{{ i[1] }}</b-col>
+                        <b-col sm="3" class="text-sm-right"> <b>{!!i[0!!}: </b> </b-col>
+                        <b-col>{!! i[1] !!}</b-col>
                     </b-row>
                 </div>
                 <button class="btn btn-primary" @click="row.item.editing = true"> <i class="fas fa-edit"></i> Editar</button>
@@ -104,8 +104,10 @@ export default {
                 _showDetails: false
             },
             
-        ]
+        ],
+        ano: new Date().getFullYear()
       }
+      
   },
   methods: {
       edit(item){
