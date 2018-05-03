@@ -16,8 +16,8 @@
             <div v-if="!row.item.editing">
                 <div v-for="(i, key) in row.item.status" :key="key" >
                     <b-row class="mb-2">
-                        <b-col sm="3" class="text-sm-right"> <b>{!!i[0!!}: </b> </b-col>
-                        <b-col>{!! i[1] !!}</b-col>
+                        <b-col sm="3" class="text-sm-right"> <b v-html="i[0]"> </b> </b-col>
+                        <b-col v-html="i[1]"></b-col>
                     </b-row>
                 </div>
                 <button class="btn btn-primary" @click="row.item.editing = true"> <i class="fas fa-edit"></i> Editar</button>
@@ -38,7 +38,7 @@
                     </b-col>
                 </b-row>
                 <b-row class="mb-2" v-for="(i ,key) in row.item.status" :key="key">
-                    <b-col sm="3" class="text-sm-right"> <b>{{i[0]}}: </b> </b-col>
+                    <b-col sm="3" class="text-sm-right"> <b v-html="i[0]"> </b> </b-col>
                     <b-col>
                         <input type="text" v-model="i[1]">
                     </b-col>
@@ -57,6 +57,10 @@
 </template>
 
 <script>
+const fs = require('fs');
+const path = require('path');
+const remote = require('electron').remote;
+const app = remote.app;
 
 export default {
   name: "items-list",
@@ -76,38 +80,17 @@ export default {
                 ],
                 editing: false,
                 _showDetails: false
-            },
-            { 
-                codigo: '002', 
-                descripcion: 'Cuota mantenimiento febrero 2018', 
-                precio: '14,000.00', 
-                status: [
-                    ['Ocupado', '14,000.00'],
-                    ['Desocupado', '7,000.dd00'],
-                    ['Sotano', '1,500.00'],
-                    ['900', '56,000.00']
-                ],
-                editing: false,
-                _showDetails: false
-            },
-            { 
-                codigo: '003', 
-                descripcion: 'Cuota mantenimiento marzo 2018', 
-                precio: '14,000.00', 
-                status: [
-                    ['Ocupado', '14,000.00'],
-                    ['Desocupado', '7,000.00'],
-                    ['Sotano', '1,500.00'],
-                    ['900', '56,000.00']
-                ],
-                editing: false,
-                _showDetails: false
-            },
+            }
             
-        ],
-        ano: new Date().getFullYear()
+        ]
       }
       
+  },
+  created(){
+      let name = "itemList.json";
+      let pth = app.getPath('userData');
+      let content = fs.readFileSync(path.join(pth, name));
+      console.log(content);
   },
   methods: {
       edit(item){
@@ -121,7 +104,6 @@ export default {
           showing = !showing;
           if(!showing && item.editing)
             item.editing = false;
-
       }
   }
 }
