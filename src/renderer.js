@@ -14,6 +14,8 @@ import BootstrapVue from 'bootstrap-vue';
 
 Vue.use(BootstrapVue);
 
+Vue.prototype.$eventHub = new Vue();
+
 const app = new Vue({
   router,
   components: {

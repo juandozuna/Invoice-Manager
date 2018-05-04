@@ -10,181 +10,31 @@
       <table id="tabla" class="table table-bordered table-striped table-hover table-sm">
           <thead>
             <tr class="">
+              <th>Razon Social</th>
               <th>Nombre</th>
               <th>Correos</th>
               <th>Telefono Principal</th>
               <th>Telefono Secundario</th>
+              <th>RNC</th>
               <th>Estatus</th>
               <th>Locales</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Juan Daniel Ozuna</td>
-              <td>juandaniel@hotmail.com</td>
-              <td>809-453-3433</td>
-              <td>809-683-5513</td>
-              <td>Ocupado</td>
-              <td>203 | 205 | 504</td>
+            <tr v-for="(c, key) in content.clientes" :key="key"> 
+              <td>{{c.RazonSocial}}</td>
+              <td>{{c.Nombre}}</td>
+              <td> <a v-for="(i, key) in c.Correos" :key="key" :href="'mailto:' + i"> {{i}}, </a> </td>
+              <td>{{c.TelefonoPrincipal}}</td>
+              <td>{{c.TelefonoSecundario}}</td>
+              <td>{{c.RNC}}</td>
+              <td> <span v-for="(i, key) in c.status" :key="key"> {{i}}, </span> </td>
+              <td> <span v-for="(i, key) in c.Locales" :key="key"> {{i}}, </span> </td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Kenia Espinal</td>
-              <td>keespinal@yahoo.es</td>
-              <td>809-756-6565</td>
-              <td>809-683-5513</td>
-              <td>Ocupado</td>
-              <td>404</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Moringa Perez</td>
-              <td>moringito@hotmail.com</td>
-              <td>809-465-3433</td>
-              <td>809-435-5513</td>
-              <td>Ocupado</td>
-              <td>204</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Monica Espinal</td>
-              <td>moniespinal@hotmail.com</td>
-              <td>809-234-2144</td>
-              <td>809-459-4243</td>
-              <td>Desocupado</td>
-              <td>402</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Juan Daniel Ozuna</td>
-              <td>juandaniel@hotmail.com</td>
-              <td>809-453-3433</td>
-              <td>809-683-5513</td>
-              <td>Ocupado</td>
-              <td>203 | 205 | 504</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Kenia Espinal</td>
-              <td>keespinal@yahoo.es</td>
-              <td>809-756-6565</td>
-              <td>809-683-5513</td>
-              <td>Ocupado</td>
-              <td>404</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Moringa Perez</td>
-              <td>moringito@hotmail.com</td>
-              <td>809-465-3433</td>
-              <td>809-435-5513</td>
-              <td>Ocupado</td>
-              <td>204</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Monica Espinal</td>
-              <td>moniespinal@hotmail.com</td>
-              <td>809-234-2144</td>
-              <td>809-459-4243</td>
-              <td>Desocupado</td>
-              <td>402</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Juan Daniel Ozuna</td>
-              <td>juandaniel@hotmail.com</td>
-              <td>809-453-3433</td>
-              <td>809-683-5513</td>
-              <td>Ocupado</td>
-              <td>203 | 205 | 504</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Kenia Espinal</td>
-              <td>keespinal@yahoo.es</td>
-              <td>809-756-6565</td>
-              <td>809-683-5513</td>
-              <td>Ocupado</td>
-              <td>404</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Moringa Perez</td>
-              <td>moringito@hotmail.com</td>
-              <td>809-465-3433</td>
-              <td>809-435-5513</td>
-              <td>Ocupado</td>
-              <td>204</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Monica Espinal</td>
-              <td>moniespinal@hotmail.com</td>
-              <td>809-234-2144</td>
-              <td>809-459-4243</td>
-              <td>Desocupado</td>
-              <td>402</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fas fa-edit"></i> </button>
-                  <button class="btn btn-danger"> <i class="fas fa-trash"></i> </button>
+                  <button class="btn btn-info" @click="edit(key)"> <i class="fas fa-edit"></i> </button>
+                  <button class="btn btn-danger" @click="trash(key)"> <i class="fas fa-trash"></i> </button>
                 </div>
               </td>
             </tr>
@@ -200,6 +50,14 @@ import {AgGridVue} from 'ag-grid-vue';
 const $ = require('jquery');
 const dt = require('datatables.net')(window, $);
 
+const fs = require('fs');
+const path = require('path');
+const remote = require('electron').remote;
+const app = remote.app;
+
+const name = "clientList.json";
+const pth = app.getPath('userData')
+
 export default {
   name: 'client-list',
   components: {
@@ -207,10 +65,22 @@ export default {
   },
   data(){
     return{
-      gridOptions: {},
-      columnDefs: null,
-      rowData: null,
-      options: {}
+      options: {},
+      content: {}
+    }
+  },
+  methods: {
+    trash(key){
+
+    },
+    edit(key){
+
+    },
+    added(key){
+
+    },
+    updateFile(){
+      
     }
   },
   created(){
@@ -239,6 +109,15 @@ export default {
     $(document).ready(() => {
       $('#tabla').DataTable(this.options);
     });
+
+    if(!fs.existsSync(path.join(pth,name))){
+        let demoItems = fs.readFileSync(`${app.getAppPath()}/src/assets/configurations/${name}`);
+        console.log(demoItems);
+        fs.writeFileSync(path.join(pth, name), demoItems);
+    }
+    let contentStringify = fs.readFileSync(`${pth}/${name}`);
+   // console.log(contentStringify);
+    this.content = JSON.parse(contentStringify);
   }
 }
 </script>

@@ -1,0 +1,148 @@
+{
+    "fields": [ "codigo", "descripcion", "precio", "detalles" ],
+    "items": [
+        { 
+            "codigo": "001", 
+            "descripcion": "Cuota mantenimiento enero 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "002", 
+            "descripcion": "Cuota mantenimiento febrero 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "003", 
+            "descripcion": "Cuota mantenimiento marzo 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "004", 
+            "descripcion": "Cuota mantenimiento abril 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "005", 
+            "descripcion": "Cuota mantenimiento mayo 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "006", 
+            "descripcion": "Cuota mantenimiento junio 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "007", 
+            "descripcion": "Cuota mantenimiento julio 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "008", 
+            "descripcion": "Cuota mantenimiento agosto 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "009", 
+            "descripcion": "Cuota mantenimiento septiembre 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "0010", 
+            "descripcion": "Cuota mantenimiento octubre 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "011", 
+            "descripcion": "Cuota mantenimiento noviembre 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        },
+        { 
+            "codigo": "012", 
+            "descripcion": "Cuota mantenimiento diciembre 2018", 
+            "precio": "$14,000.00", 
+            "status": [
+                ["Ocupado", "$14,000.00"],
+                ["Desocupado", "$7,000.00"],
+                ["Sotano", "1,500.00"],
+                ["900", "56,000.00"]
+            ],
+            "editing": false
+        }]
+}

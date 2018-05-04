@@ -1,0 +1,46 @@
+{
+    "clientes": [
+        {
+            "RazonSocial": "Inversiones Juan Daniel",
+            "Nombre": "Juan Daniel Ozuna",
+            "Correos": ["juandanielozuna2@gmail.com", "jozuna@casadelaltisimo.com", "keespinal@yahoo.es"],
+            "TelefonoPrincipal" : "829-683-5513",
+            "TelefonoSecundario": "809-563-9101",
+            "TelefonosAdicionales": ["809-756-6565", "809-381-2225"],
+            "Locales" : ["202", "404"],
+            "RNC": "101807695",
+            "status":["Ocupado"],
+            "Combrabante":true,
+            "print_later": false,
+            "send_later": false
+        },
+        {
+            "RazonSocial": "Inversiones Mareca",
+            "Nombre": "Reyna Suera",
+            "Correos": ["maripili@hotmail.com", "mareca@claro.net.do", "reynasuero@hotmail.com"],
+            "TelefonoPrincipal" : "809-541-0000",
+            "TelefonoSecundario": "809-541-2324",
+            "TelefonosAdicionales": ["809-453-4232", "829-541-2225"],
+            "Locales" : ["202", "404"],
+            "RNC": "101807695",
+            "status":["Ocupado"],
+            "Combrabante":true,
+            "print_later": false,
+            "send_later": false
+        },
+        {
+            "RazonSocial": "Therrestra",
+            "Nombre": "Pedro Alvarez",
+            "Correos": ["admin@therrestra.com", "palvarez@therrestra.com"],
+            "TelefonoPrincipal" : "809-357-4536",
+            "TelefonoSecundario": "809-794-2453",
+            "TelefonosAdicionales": ["809-5654-1325", "809-453-2545"],
+            "Locales" : ["202", "404"],
+            "RNC": "101807695",
+            "status":["Ocupado"],
+            "Combrabante":true,
+            "print_later": false,
+            "send_later": false
+        }
+    ]
+}
