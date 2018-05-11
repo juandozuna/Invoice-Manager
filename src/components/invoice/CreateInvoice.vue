@@ -19,13 +19,7 @@
         <p><strong>Fact: </strong> 4560</p> 
         <p><strong>NCF: </strong> B0100000123</p>
       </div>
-      <div class="choice">
-          <div class="form-group">
-            <select class="form-control" id="" v-model="selectedClient">
-              <option v-for="(c, key) in clientes" :key="'c'+key" :value="key">{{c.Locales[0] }} | {{c.RazonSocial}} | {{c.Nombre}}</option>
-            </select>
-          </div>
-        </div>
+    
 
       <div class="promise">
         <div class="mover-controls">
@@ -51,8 +45,19 @@
       </div>
     </div>
     
-
+     <br>
+    <!-- Added Component to handle Client Selection -->
+    <div class="buscar-autocomplete row">
+      <div class="col-4 text-right">
+        <h4>Buscar Cliente</h4>
+      </div>
+      <div class="col-8">
+        <autocomplete-input inputClass="form-control mr-auto"></autocomplete-input>
+      </div>
+    </div>
+    <br>
     <!-- This is the place where the actual information of the invoice starts to be afected -->
+   
     <div class="client-info">
         <table class="table info">
           <tbody>
@@ -116,6 +121,7 @@
 
 
 <script>
+import AutocompleteInput from './../Textboxes/AutocompleteInput';
 const $ = require('jquery');
 require('popper.js');
 require('bootstrap');
@@ -127,6 +133,9 @@ const app = require('electron').remote.app;
 
 export default {
   name: 'create-invoice',
+  components: {
+    AutocompleteInput
+  },
   data(){
     return {
       date: '',
@@ -258,11 +267,13 @@ export default {
 
 
 <style scoped>
+  .buscar-autocomplete{
+    width: 57%;
+    margin: 0 auto;
+  }
 
-  .choice{
-    position: absolute;
-    left: 31%;
-    top: 195px;
+  .buscar-autocomplete h4{
+    color:rgb(0, 122, 204)
   }
 
   .mover-controls{

@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'invoice-create',
-    component: require('./components/invoice/create')
+    component: require('./components/invoice/CreateInvoice')
   },
   {
     path: '/Clientes',
