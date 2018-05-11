@@ -19,6 +19,13 @@
         <p><strong>Fact: </strong> 4560</p> 
         <p><strong>NCF: </strong> B0100000123</p>
       </div>
+      <div class="choice">
+          <div class="form-group">
+            <select class="form-control" id="" v-model="selectedClient">
+              <option v-for="(c, key) in clientes" :key="'c'+key" :value="key">{{c.Locales[0] }} | {{c.RazonSocial}} | {{c.Nombre}}</option>
+            </select>
+          </div>
+        </div>
 
       <div class="promise">
         <div class="mover-controls">
@@ -27,7 +34,7 @@
         </div>
 
         <h4 class="text-center">Factura Válida para Crédito Fiscal</h4>
-
+        
         <div class="controls">
           <button class="btn btn-success" data-toggle="tooltip" title="Guardar y hacer una factura nuevas" @click="newInv"><i class="fas fa-save"></i> Nuevo <i class="fas fa-plus"></i> </button>
           <button class="btn btn-primary" title="Solo guarda lo que ya se a hecho" @click="save"><i class="fas fa-save"></i> Guardar</button>
@@ -84,15 +91,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="i in duplicates" :key="i">
-            <td><input type="text" class="invoice-input text-center"></td>
-            <td><input type="text" class="invoice-input"></td>
-            <td><input type="text" class="invoice-input text-center"></td>
-            <td><input type="text" class="invoice-input text-center"></td>
-            <td><input type="text" class="invoice-input text-center"></td>
+          <tr v-for="(b, key) in body" :key="key">
+            <td><input type="text" class="invoice-input text-center" v-model="b.codigo" v-on:change="getItemData(key)"></td>
+            <td><input type="text" class="invoice-input" v-model="b.descripcion"></td>
+            <td><input type="number" class="invoice-input text-center" min="0" v-model="b.cantidad" v-on:change="calculateTotal(key)"></td>
+            <td><input type="number" class="invoice-input text-center" v-model="b.precio" v-on:change="calculateTotal(key)"></td>
+            <td><span type="text" class="invoice-input text-center">{{ numeral(b.total).format('$0,0.00') }} </span></td>
           </tr>
         </tbody>
       </table>
+
+      <div class="float-left">
+          <h3>Total: {{totalDeTodo}}</h3>
+      </div>
+
       <div class="bottom-controls">
         <button class="btn btn-primary" @click="addRow"><i class="fas fa-plus"></i> Agregar Fila</button>
         <button class="btn btn-primary" @click="removeRow"><i class="fas fa-cross"></i> Quitar Fila</button>
@@ -108,21 +120,81 @@ const $ = require('jquery');
 require('popper.js');
 require('bootstrap');
 
+const numeral = require('numeral');
+const path = require('path');
+const fs = require('fs');
+const app = require('electron').remote.app;
+
 export default {
   name: 'create-invoice',
   data(){
     return {
       date: '',
-      duplicates: 5,
+      body: [],
+      items: [],
+      clientes: [],
+      selectedClient: 0,
+      numeral: require('numeral')
+    }
+  },
+  computed: {
+    totalDeTodo(){
+      var number = 0;
+      this.body.forEach(b => {
+        number += Number(b.total);
+      });
+      return this.numeral(number).format('$0,0.00');
     }
   },
   methods: {
+    calculateTotal(key){
+      let total = Number(this.body[key].precio) * Number(this.body[key].cantidad);
+      this.body[key].total = total
+    },
+    getItemData(key){
+      let item = {}
+    
+      if(this.body[key].codigo != ''){
+      this.items.forEach( (it) => {
+        if(it.codigo === this.body[key].codigo)
+        {
+          item = it;
+        }
+      });
+
+      if(!item.hasOwnProperty('codigo')) {
+        console.log('No se encontró el item');
+        return;
+      } 
+      console.log('item: ' + item);
+      console.log(item);
+
+      //TODO: Assign price according to status 
+      this.body[key].descripcion = item.descripcion;
+      this.body[key].precio = numeral(item.precio).format('0');
+
+      //TODO: cantidad must be set according to LOCAL amount
+      this.body[key].cantidad = 1;
+      this.body[key].total = Number(this.body[key].precio) * Number(this.body[key].cantidad);
+
+      }else{
+        this.body[key].descripcion = '';
+        this.body[key].precio =  0;
+        this.body[key].cantidad = 0;
+        this.body[key].total = 0;
+      }
+    },
     addRow(){
-      this.duplicates++;
+      this.body.push({
+        codigo : '',
+        descripcion : '',
+        cantidad : 0,
+        precio : 0,
+        total: 0
+      });
     },
     removeRow(){
-      if(this.duplicates > 1)
-        this.duplicates--;
+      this.body.splice(this.body.length-1, 1);
     },
 
     prev(){
@@ -160,12 +232,25 @@ export default {
 
   },
   created(){
-      let d = new Date('03/12/2016');
-      this.date = d.toLocaleDateString('es-es', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
+    this.items = JSON.parse(fs.readFileSync(`${app.getPath('userData')}/itemsList.json`)).items;
+    this.clientes = JSON.parse(fs.readFileSync(`${app.getPath('userData')}/clientList.json`)).clientes;
+
+    let d = new Date('03/12/2016');
+    this.date = d.toLocaleDateString('es-es', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    for(let i = 0; i < 5; i++){
+      this.body.push({
+        codigo : '',
+        descripcion : '',
+        cantidad : 0,
+        precio : 0,
+        total: 0
       });
+    }
   }
   //TODO: Code and functionality pending to be able to create invoices. Design of rest
 }
@@ -173,6 +258,12 @@ export default {
 
 
 <style scoped>
+
+  .choice{
+    position: absolute;
+    left: 31%;
+    top: 195px;
+  }
 
   .mover-controls{
     position: absolute;

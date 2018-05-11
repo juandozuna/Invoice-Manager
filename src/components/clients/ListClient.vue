@@ -1,5 +1,10 @@
 <template>
   <div class="container-fluid" >
+     
+      <b-modal ref="addClientModal" centered hide-footer size="lg" title="Editar Cliente">
+        <client-form :client="content.clientes[clientKey]" @submitted="edited(clientKey)"></client-form>
+      </b-modal>
+
       <div>
         <h3 class="text-center">Listado</h3>
       </div>
@@ -47,6 +52,8 @@
 
 <script>
 import {AgGridVue} from 'ag-grid-vue';
+import ClientForm from './ClientForm';
+import EventBus from './../../eventBus';
 const $ = require('jquery');
 const dt = require('datatables.net')(window, $);
 
@@ -61,26 +68,44 @@ const pth = app.getPath('userData')
 export default {
   name: 'client-list',
   components: {
-    'ag-grid-vue':AgGridVue
+    ClientForm
   },
   data(){
     return{
+      alertType: '',
+      alertContent: '',
       options: {},
-      content: {}
+      content: {},
+      clientKey: 0
     }
   },
   methods: {
     trash(key){
-
+      this.confirmTrash(key);
+      console.log('trash here');
+    },
+    confirmTrash(key){
+      this.content.clientes.splice(key, 1);
+      this.alertType = 'danger';
+      this.alertContent = "¿Está seguro de que quiere borrar a ese cliente?";
+      this.updateFile();
     },
     edit(key){
-
+      this.clientKey = key;
+      this.$refs.addClientModal.show();
+    },
+    edited(key){
+      this.$refs.addClientModal.hide();
+      this.updateFile();
     },
     added(key){
 
     },
     updateFile(){
-      
+      fs.writeFile(`${pth}/${name}`, JSON.stringify(this.content), err => {
+        if(err) throw err;
+        console.log("File saved succefully");
+      });
     }
   },
   created(){
