@@ -34,12 +34,12 @@
           <button class="btn btn-primary" title="Solo guarda lo que ya se a hecho" @click="save"><i class="fas fa-save"></i> Guardar</button>
           <button class="btn btn-danger" @click="reset"><i class="fas fa-times"></i> Resetear</button>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="print">
+            <input class="form-check-input" type="checkbox" value="print" v-model="info.print_later">
             <label class="form-check-label">Imprimir Luego</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="email" checked>
-            <label class="form-check-label"> Enviar Luego</label>
+            <input class="form-check-input" type="checkbox" value="email" v-model="info.send_later" >
+            <label class="form-check-label" > Enviar Luego</label>
           </div>
         </div>
       </div>
@@ -52,7 +52,11 @@
         <h4>Buscar Cliente</h4>
       </div>
       <div class="col-8">
-        <autocomplete-input inputClass="form-control mr-auto"></autocomplete-input>
+        <autocomplete-input 
+          inputClass="form-control mr-auto"
+          :items="autoCompleteItems"
+          @autocomplete-selected-client="selectedClient"
+          ></autocomplete-input>
       </div>
     </div>
     <br>
@@ -63,15 +67,15 @@
           <tbody>
             <tr>
               <td>NOMBRE O RAZON SOCIAL</td>
-              <td><input type="text" class="invoice-control"></td>
+              <td><input type="text" class="invoice-control" v-model="info.RazonSocial"></td>
               <td>LOCAL</td>
-              <td><input type="text" class="invoice-control"></td>
+              <td><input type="text" class="invoice-control" v-model="info.Locales"></td>
             </tr>
              <tr>
               <td>RNC CLIENTE</td>
-              <td><input type="text" class="invoice-control"></td>
+              <td><input type="text" class="invoice-control" v-model="info.RNC"></td>
               <td>STATUS</td>
-              <td><input type="text" class="invoice-control"></td>
+              <td><input type="text" class="invoice-control" v-model="info.status"></td>
             </tr>
           </tbody>
         </table>
@@ -139,10 +143,18 @@ export default {
   data(){
     return {
       date: '',
+      info: {
+        RazonSocial: '',
+        Locales: '',
+        RNC: '',
+        status: '',
+        print_later: false,
+        send_later: false,
+      },
       body: [],
       items: [],
       clientes: [],
-      selectedClient: 0,
+      autoCompleteItems: [],
       numeral: require('numeral')
     }
   },
@@ -192,6 +204,21 @@ export default {
         this.body[key].cantidad = 0;
         this.body[key].total = 0;
       }
+    },
+    selectedClient(index){
+      let client = this.clientes[index];
+      this.info.RazonSocial = client.RazonSocial;
+      this.info.status = client.status[0];
+      this.info.RNC = client.RNC;
+      this.info.print_later = client.print_later;
+      this.info.send_later = client.send_later;
+      let locales = '';
+      client.Locales.forEach((l,i) => {
+        if(i >= client.Locales.length-1)
+          locales += `${l}`;
+        else locales += `${l} |`;
+      });
+      this.info.Locales = locales;
     },
     addRow(){
       this.body.push({
@@ -243,6 +270,14 @@ export default {
   created(){
     this.items = JSON.parse(fs.readFileSync(`${app.getPath('userData')}/itemsList.json`)).items;
     this.clientes = JSON.parse(fs.readFileSync(`${app.getPath('userData')}/clientList.json`)).clientes;
+    this.clientes.forEach((c, index) => {
+      let locales = '';
+      c.Locales.forEach( l => {
+        locales += l + '|';
+      });
+      this.autoCompleteItems.push([`${locales}-${c.RazonSocial}`, index]);
+    });
+
 
     let d = new Date('03/12/2016');
     this.date = d.toLocaleDateString('es-es', {
