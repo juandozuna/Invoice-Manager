@@ -65,7 +65,7 @@
 <script>
 import AddListItem from './AddListItem';
 import EventBus from './../../eventBus';
-//import DataReader from '../../dataReader';
+import DataReader from '../../dataReader';
 
 const fs = require('fs');
 const path = require('path');
