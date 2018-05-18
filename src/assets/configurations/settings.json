@@ -1,0 +1,30 @@
+{
+    "company" : {
+        "nombre" : "Torre Empresarial Reyna II",
+        "direccion1" : "Av. Pedro Henriquez Ureña #138",
+        "direccion2" : "Santo Domingo, Rep. Dom.",
+        "sector": "La Esperilla",
+        "telefono": "809-381-2225",
+        "RNC" : "43-0028878"
+    },
+    "emailSettings":{
+        "custom":{
+            "userName": "info@example.com",
+            "password": "password",
+            "servidor": "mail.example.com",
+            "port": 128
+        },
+        "outlook":{
+            "userName": "info@outlook.com",
+            "password": "password",
+            "servidor": "smtp-mail.outlook.com",
+            "port": 587
+        },
+        "gmail":{
+            "userName": "info@gmail.com",
+            "password": "password",
+            "servidor": "smtp.gmail.com",
+            "port": 465
+        }
+    }
+}
