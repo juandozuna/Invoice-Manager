@@ -12,10 +12,10 @@
           <p><strong>RNC: 43-0028878</strong></p>
         </div>
       </div>
-      <h1 class="display-4 text-center">Nombre de Company</h1> <!--(MAX: 25) -->
+      <h1 class="display-4 text-center">NAME</h1> <!--(MAX: 25) -->
 
       <div class="right">
-        <p><strong>Fecha: </strong> {{date}}</p>
+        <p><strong>Fecha: </strong> <input type="date" v-model="date"/> </p>
         <p><strong>Fact: </strong> 4560</p> 
         <p><strong>NCF: </strong> B0100000123</p>
       </div>
@@ -279,12 +279,7 @@ export default {
     });
 
 
-    let d = new Date('03/12/2016');
-    this.date = d.toLocaleDateString('es-es', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    this.date = "2018-01-01";
 
     for(let i = 0; i < 5; i++){
       this.body.push({
@@ -295,6 +290,9 @@ export default {
         total: 0
       });
     }
+  },
+  beforeRouteLeave(to, from, next){
+    this.$router.push(to);
   }
   //TODO: Code and functionality pending to be able to create invoices. Design of rest
 }
