@@ -27,10 +27,21 @@
             </div>
             <div v-else>
                 <div style="margin-right: 30px">
-                    <div class="form-group">
-                        <label>Descripción</label>  
-                        <input type="text" class="form-control" v-model="row.item.descripcion">
-                    </div>  
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="form-gro">
+                                <label>Código</label>
+                                <input type="text" class="form-control" v-model="row.item.codigo">
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <div class="form-group">
+                                <label>Descripción</label>  
+                                <input type="text" class="form-control" v-model="row.item.descripcion">
+                            </div>  
+                        </div>
+                    </div>
+                    
                 </div>
             
                 <div>

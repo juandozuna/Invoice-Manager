@@ -291,9 +291,9 @@ export default {
       });
     }
   },
-  beforeRouteLeave(to, from, next){
+  /*beforeRouteLeave(to, from, next){
     this.$router.push(to);
-  }
+  }*/
   //TODO: Code and functionality pending to be able to create invoices. Design of rest
 }
 </script>
