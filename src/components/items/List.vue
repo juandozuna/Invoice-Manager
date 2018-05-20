@@ -77,15 +77,11 @@
 import AddListItem from './AddListItem';
 import EventBus from './../../eventBus';
 import DataReader from '../../dataReader';
-
 const fs = require('fs');
 const path = require('path');
 const remote = require('electron').remote;
 const app = remote.app;
-
-const name = "itemsList.json";
-const pth = app.getPath('userData')
-
+//let dr = require('../../dataReader');
 
 
 export default {
@@ -96,20 +92,13 @@ export default {
   data(){
       return {
         content: {},
+        dr: new DataReader(),
       }
       
   },
   created(){
-    
-    if(!fs.existsSync(path.join(pth,name))){
-        let demoItems = fs.readFileSync(`${app.getAppPath()}/src/assets/configurations/itemsList.json`);
-        console.log(demoItems);
-        fs.writeFileSync(path.join(pth, name), demoItems);
-    }
 
-    let contentStringify = fs.readFileSync(`${pth}/${name}`);
-   // console.log(contentStringify);
-    this.content = JSON.parse(contentStringify);
+    this.content = this.dr.getAdvancedItems();
     
     //console.log(this.content);
     EventBus.$on('add-item-list', this.addNewItem);
@@ -119,6 +108,7 @@ export default {
   methods: {
       addNewItem(obj){
           this.content.items.push(obj);
+          this.updateFile();
 
       },
       edit(item){
@@ -128,6 +118,7 @@ export default {
           let i = this.content.items.indexOf(item);
           if(i > -1){
               this.content.items.splice(i, 1);
+              this.updateFile();
           }
           console.log(i + " This is item");
       },
@@ -147,17 +138,12 @@ export default {
         this.updateFile();
       },
       updateFile(){
-          let demoItems = this.content;
-        console.log(demoItems);
-        fs.writeFile(path.join(pth, name), JSON.stringify(demoItems), (err) => {
-            if(err) throw err;
-            console.log('Los cambios han sido guardados exitosamente');
-        });
+        this.dr.updateItems(this.content);
       },
       removeStatus(item, key){
         item.status.splice(key, 1);
       },
-      details(showing, item){
+       details(showing, item){
           showing = !showing;
           if(!showing && item.editing)
             item.editing = false;

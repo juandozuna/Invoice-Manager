@@ -4,23 +4,26 @@ const path = require('path');
 const fs = require('fs');
 const app = require('electron').remote.app;
 
-
-export class DataReader{
+export default class DataReader{
     constructor(){
        
-        
-        if(!fs.existsSync(path.join(app.getPath('userData'),'systemSettings.json'))){
-            this.systemSettings = JSON.parse(fs.readFileSync(`${app.getAppPath()}/src/assets/configurations/systemSettings.json`));
-            fs.writeFileSync(path.join(app.getPath('userData'), 'itemsList.json'), JSON.stringify(this.systemSettings));
+        this.content = {
+            folderPath: app.getPath('userData')
+        };
+       if(!fs.existsSync(path.join(app.getPath('userData'),'systemSettings.json'))){
+            fs.writeFileSync(path.join(app.getPath('userData'), 'systemSettings.json'), JSON.stringify(this.content));
         }
-        else this.systemSettings = JSON.parse(fs.readFileSync(`${app.getPath('userData')}/systemSettings.json`));
-
-        this.folderPath = this.systemSettings.folderPath != null ? this.systemSettings.folderPath : app.getPath('userData');
-
-        this.items = '';
-        this.clientes = '';
-        this.settings = '';
+        this.systemSettings = JSON.parse(fs.readFileSync(`${app.getPath('userData')}/systemSettings.json`));
         
+      
+        console.log('Data Reader Class was constructed');
+        this.folderPath = this.systemSettings.folderPath != null ? this.systemSettings.folderPath : app.getPath('userData');
+        
+
+        this.items = {};
+        this.clientes = {};
+        this.settings = {};
+        this.reloadObject();
     }
 
     reloadObject(){
@@ -29,6 +32,7 @@ export class DataReader{
             fs.writeFileSync(path.join(this.folderPath, 'itemsList.json'), JSON.stringify(this.items));
         }
         else this.items = JSON.parse(fs.readFileSync(`${this.folderPath}/itemsList.json`));
+        //console.log(this.items);
     
 
         if(!fs.existsSync(path.join(this.folderPath,'clientList.json'))){
@@ -63,12 +67,13 @@ export class DataReader{
 
     updateSystemSettings(sysSettings){
         this.systemSettings = sysSettings;
-        fs.writeFileSync(`${app.getPath('userData')}/systemSettings.json`);
+        fs.writeFileSync(`${app.getPath('userData')}/systemSettings.json`, JSON.stringify(this.systemSettings));
     }
 
     updateItems(items){
         this.items = items;
         fs.writeFileSync(`${this.folderPath}/itemsList.json`, JSON.stringify(this.items));
+        console.log('Items updated Succesfully');
     }
 
     readItems(){
@@ -93,10 +98,16 @@ export class DataReader{
         return this.items.items;
     }
 
+    getAdvancedItems(){
+        this.readItems();
+        console.log("Advanced Items where called");
+        console.log(this.items);
+        return this.items;
+    }
+
     getSettings(){
         this.readSettings();
         return this.settings;
     }
 
 }
-
