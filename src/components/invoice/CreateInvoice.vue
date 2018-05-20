@@ -126,6 +126,7 @@
 
 <script>
 import AutocompleteInput from './../Textboxes/AutocompleteInput';
+import DataReader from '../../dataReader';
 const $ = require('jquery');
 require('popper.js');
 require('bootstrap');
@@ -155,7 +156,8 @@ export default {
       items: [],
       clientes: [],
       autoCompleteItems: [],
-      numeral: require('numeral')
+      numeral: require('numeral'),
+      dr: new DataReader(),
     }
   },
   computed: {
@@ -268,8 +270,8 @@ export default {
 
   },
   created(){
-    this.items = JSON.parse(fs.readFileSync(`${app.getPath('userData')}/itemsList.json`)).items;
-    this.clientes = JSON.parse(fs.readFileSync(`${app.getPath('userData')}/clientList.json`)).clientes;
+    this.items = this.dr.getItems();
+    this.clientes = this.dr.getClientes();
     this.clientes.forEach((c, index) => {
       let locales = '';
       c.Locales.forEach( l => {
