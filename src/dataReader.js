@@ -90,7 +90,7 @@ export default class DataReader{
 
     getClientes(){
         this.readClientes();
-        return this.clientes.clientes;
+        return this.clientes;
     }
 
     getItems(){

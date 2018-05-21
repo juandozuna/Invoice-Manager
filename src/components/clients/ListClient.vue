@@ -54,6 +54,8 @@
 import {AgGridVue} from 'ag-grid-vue';
 import ClientForm from './ClientForm';
 import EventBus from './../../eventBus';
+import DataReader from './../../dataReader';
+
 const $ = require('jquery');
 const dt = require('datatables.net')(window, $);
 
@@ -76,7 +78,8 @@ export default {
       alertContent: '',
       options: {},
       content: {},
-      clientKey: 0
+      clientKey: 0,
+      dr: new DataReader(),
     }
   },
   methods: {
@@ -102,10 +105,7 @@ export default {
 
     },
     updateFile(){
-      fs.writeFile(`${pth}/${name}`, JSON.stringify(this.content), err => {
-        if(err) throw err;
-        console.log("File saved succefully");
-      });
+      this.dr.updateClientes(this.content);
     }
   },
   created(){
@@ -135,14 +135,7 @@ export default {
       $('#tabla').DataTable(this.options);
     });
 
-    if(!fs.existsSync(path.join(pth,name))){
-        let demoItems = fs.readFileSync(`${app.getAppPath()}/src/assets/configurations/${name}`);
-        console.log(demoItems);
-        fs.writeFileSync(path.join(pth, name), demoItems);
-    }
-    let contentStringify = fs.readFileSync(`${pth}/${name}`);
-   // console.log(contentStringify);
-    this.content = JSON.parse(contentStringify);
+    this.content = this.dr.getClientes();
   }
 }
 </script>
